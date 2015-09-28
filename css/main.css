@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: 'Noto Serif', Georgia, serif;
+  padding-bottom: 70px;
+}
+
+@media (min-width: 570px) {
+}
+
+@media (min-width: 800px) {
+  .site-header {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 18em;
+    border-right: 1px solid #ccc;
+    box-shadow: 1px 0 1px #ccc;
+    padding-top: 18%;
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .site-header {
+    width: 18em;
+  }
+}
+
+.header-photo {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #666;
+}
+
+.profile-title {
+  font-family: Open Sans, Helvetica Neue, sans-serif;
+  color: #000;
+}
+
+.profile-description {
+  color: #999;
+}
+
+.profile-title:hover {
+  color: #4db380;
+  text-decoration: none;
+}
+
+.socialnav-icon {
+  color: #ccc;
+}
+
+.socialnav-icon--github:hover {
+  color: #000;
+}
+
+.socialnav-icon--twitter:hover {
+  color: #00aced;
+}
+
+.socialnav-icon--facebook:hover {
+  color: #3b5998;
+}
+
+.header-nav-link {
+  color: #999;
+}
+
+.header-nav-link:hover {
+  color: #4db380;
+  text-decoration: none;
+}
