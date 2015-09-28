@@ -19,61 +19,47 @@
 
 </head>
 <body ng-app="myBlog">
-  <div class="site-header">
-    <div class="site-header__content text-center">
+  <header class="site-header">
+    <div class="header-photo">
       <img src="pic/profile.jpeg" alt="profile" class="img-circle header-photo">
+    </div>
 
-      <a href="#/home" title="Home" class="profile-title">
+    <div class="header-title">
+      <a href="#/home" title="Home" class="header-title__name">
         <h3>Sen Zhang</h3>
       </a>
-
-      <p class="profile-description">Senior Software Engineer at GuideSpark</p>
-
-      <p>
-        <a class="socialnav-icon socialnav-icon--github" href="https://github.com/Sen-Zhang" target="_blank"
-           title="GitHub">
-          <span class="fa-stack">
-            <i class="fa fa-2x fa-github fa-stack-1x"></i>
-          </span>
-        </a>
-        <a class="socialnav-icon socialnav-icon--facebook" href="https://twitter.com/solowolf21" target="_blank"
-           title="Facebook">
-          <span class="fa-stack">
-            <i class="fa fa-square-o fa-stack-2x"></i>
-            <i class="fa fa-facebook fa-stack-1x"></i>
-          </span>
-        </a>
-        <a class="socialnav-icon socialnav-icon--twitter" href="https://twitter.com/solowolf21" target="_blank"
-           title="Twitter">
-           <span class="fa-stack">
-            <i class="fa fa-square-o fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x"></i>
-          </span>
-        </a>
-      </p>
-
-      <p><a class="header-nav-link" href="#/home">Home</a></p>
-
-      <p><a class="header-nav-link" href="#/articles">Articles</a></p>
-
-      <p><a class="header-nav-link" href="#/about">About</a></p>
+      <div class="header-title__position">Engineer at GuideSpark</div>
     </div>
-  </div>
+
+    <div class="header-socialnav">
+      <a class="header-socialnav__icon header-socialnav__icon--github"
+         href="https://github.com/Sen-Zhang" target="_blank" title="GitHub">
+        <i class="fa fa-github fa-2x"></i>
+      </a>
+      <a class="header-socialnav__icon header-socialnav__icon--facebook"
+         href="https://www.facebook.com/sen.zhang.370" target="_blank" title="Facebook">
+        <i class="fa fa-facebook-official fa-2x"></i>
+      </a>
+      <a class="header-socialnav__icon header-socialnav__icon--twitter"
+         href="https://twitter.com/solowolf21" target="_blank" title="Twitter">
+        <i class="fa fa-twitter-square fa-2x"></i>
+      </a>
+    </div>
+    <div class="header-links">
+      <div class="header-link-container">
+        <a class="header-link" href="#/home">Home</a>
+      </div>
+      <div class="header-link-container">
+        <a class="header-link" href="#/home">Articles</a>
+      </div>
+      <div class="header-link-container">
+        <a class="header-link" href="#/about">About</a>
+      </div>
+    </div>
+  </header>
 
   <section class="section">
     <div class="container container-fluid" ui-view=""></div>
   </section>
-
-  <footer class="footer">
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            Copyright © Sen Zhang 2015. All Rights Reserved.
-          </div>
-        </div>
-      </div>
-    </nav>
-  </footer>
 </body>
 </html>
