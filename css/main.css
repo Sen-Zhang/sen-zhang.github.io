@@ -97,7 +97,7 @@ a:hover {
   }
 }
 
-@media  (max-width: 768px) {
+@media  (max-width: 800px) {
   .site-header {
     display: block;
     width: 100%;
@@ -130,7 +130,7 @@ a:hover {
   }
 }
 
-@media (min-width: 769px) and (max-width: 992px) {
+@media (min-width: 801px) and (max-width: 992px) {
   .site-header {
     width: 16em;
     height: 100%;
@@ -144,7 +144,7 @@ a:hover {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 993px) {
   .site-header {
     width: 18em;
     height: 100%;
