@@ -22,6 +22,13 @@ myBlog.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('bvg', {
       url: '/articles/bootstrap_view_generator',
-      templateUrl: 'js/templates/articles/bootstrap_view_generator.html'
+      views: {
+        '': {
+          templateUrl: 'js/templates/articles/bootstrap_view_generator/index.html'
+        },
+        'alerts@bvg': {
+          templateUrl: 'js/templates/articles/bootstrap_view_generator/alerts.html'
+        }
+      }
     });
 });

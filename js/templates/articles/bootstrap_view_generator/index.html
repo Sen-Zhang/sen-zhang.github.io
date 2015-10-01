@@ -1,0 +1,72 @@
+<h1>Bootstrap View Generator Engine</h1>
+
+<hr/>
+
+<div class="article-section">
+  <h2>Overview</h2>
+  <hr/>
+
+  <p class="summary">This is a rails engine to help you easily build bootstrap style UI components with native active
+    view helpers.</p>
+</div>
+
+<div class="article-section">
+  <h2>Requirement</h2>
+  <hr/>
+
+  <ul class="article-ul">
+    <li>Rails 3.0+</li>
+    <li><a href="http://getbootstrap.com/">Bootstrap 3.0+</a></li>
+    <li><a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome v4.4.0</a></li>
+    <li><a href="http://jquery.com/download/">jQuery 1.7+</a></li>
+  </ul>
+</div>
+
+<div class="article-section">
+  <h2>Installation</h2>
+  <hr/>
+
+  <p>Add this line to your application's Gemfile:</p>
+
+  <div class="well well-sm">
+    <code>gem 'bootstrap_view_generator'</code>
+  </div>
+
+  <p>And then execute:</p>
+
+  <div class="well well-sm">
+    <code>$ bundle</code>
+  </div>
+
+  <p>Or install it yourself as:</p>
+
+  <div class="well well-sm">
+    <code>$ gem install bootstrap_view_generator</code>
+  </div>
+
+  <p>In application.js, add the following line:</p>
+
+  <div class="well well-sm">
+    <code>//= require bootstrap_view_generator</code>
+  </div>
+
+  <p>In application.css, add the following line:</p>
+
+  <div class="well well-sm">
+    <code>*= require bootstrap_view_generator</code>
+  </div>
+</div>
+
+<div class="article-section" ui-view="alerts"></div>
+<div class="article-section" ui-view="panels"></div>
+<div class="article-section" ui-view="panelRows"></div>
+<div class="article-section" ui-view="modals"></div>
+<div class="article-section" ui-view="navs"></div>
+<div class="article-section" ui-view="navbars"></div>
+<div class="article-section" ui-view="dropdowns"></div>
+<div class="article-section" ui-view="progressBars"></div>
+<div class="article-section" ui-view="icons"></div>
+<div class="article-section" ui-view="badges"></div>
+<div class="article-section" ui-view="breadcrumbs"></div>
+<div class="article-section" ui-view="buttons"></div>
+<div class="article-section" ui-view="forms"></div>
