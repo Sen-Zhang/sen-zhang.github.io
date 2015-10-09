@@ -1,0 +1,70 @@
+<h2>Badge</h2>
+<hr/>
+
+<p class="summary">Use the <code>badge</code> helper to display Bootstrap-styled badge.</p>
+
+<h3 class="article-section__title">Basic badges</h3>
+
+<p>Use <code>badge</code> without options to render a basic badge.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= badge 21 %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <span class="badge">21</span>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;span class="badge">21&lt;/span>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Customize badge tag</h3>
+
+<p class="summary">Add <code>tag</code> option to change the badge wrapper tag.</p>
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= badge 21, tag: :em %>
+  </code>
+</pre>
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <em class="badge">21</em>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;em class="badge">21&lt;/em>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex badges</h3>
+<p>You can also specify custom options which will be added to the badge's wrapper tag.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= badge 'Hello', tag: :i, id: 'badge', class: :en, data: {js: 1} do %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <i id="badge" class="badge en" data-js="1">Hello</i>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;i id="badge" class="badge en" data-js="1">Hello&lt;/i>
+  </code>
+</pre>
