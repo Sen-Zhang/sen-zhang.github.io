@@ -3,45 +3,40 @@
 
 <p class="summary">Use the <code>alert_box</code> helper to display Bootstrap-styled alert messages.</p>
 
-<h3>Basic alerts</h3>
+<h3 class="article-section__title">Basic alerts</h3>
 
 <p>Use <code>alert_box</code> without options to render a basic alert box.</p>
 
 <pre>
-    <code class="language-rhtml" data-lang="rhtml">
-      <!-- highlight -->
-      <!--<%= alert_box 'You accepted the Terms of service.' %>-->
-    </code>
-  </pre>
+  <code class="language-ruby" prism>
+    &lt;%= alert_box 'You accepted the Terms of service.' %>
+  </code>
+</pre>
 
 <p>generates the following HTML:</p>
 
-<div class="well">
+<div class="well well-marginless-bottom">
   <h5>EXAMPLE</h5>
 
   <div class="alert alert-info" role="alert">You accepted the Terms of service.</div>
 </div>
-<div class="highlight">
-    <pre>
-      <code class="language-html" data-lang="html">
-        <!-- highlight -->
-        <!--<div class="alert alert-info" role="alert">You accepted the Terms of service.</div>-->
-      </code>
-    </pre>
-</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="alert alert-info" role="alert">You accepted the Terms of service.&lt;/div>
+  </code>
+</pre>
 
-
-<h3>Dismissible alerts</h3>
+<h3 class="article-section__title">Dismissible alerts</h3>
 
 <p class="summary">Add <code>dismiss: true</code> to add a close button to the alert box.</p>
 <pre>
-    <code class="language-rhtml" data-lang="rhtml">
-      <!--<%= alert_box 'You accepted the Terms of service.', dismissible: true %>-->
-    </code>
-  </pre>
+  <code class="language-ruby" prism>
+    &lt;%= alert_box 'You accepted the Terms of service.', dismiss: true %>
+  </code>
+</pre>
 <p>generates the following HTML:</p>
 
-<div class="well">
+<div class="well well-marginless-bottom">
   <h5>EXAMPLE</h5>
 
   <div class="alert alert-info" role="alert">
@@ -50,15 +45,66 @@
     You accepted the Terms of service.
   </div>
 </div>
-<div class="highlight">
-   <pre><code class="language-html" data-lang="html">
-     <!-- highlight -->
-     <!--<div class="alert alert-info" role="alert">-->
-       <!--<button class="close" data-dismiss="alert" type="button">-->
-         <!--<span aria-hidden="true">×</span><span class="sr-only">Close</span>-->
-       <!--</button>-->
-       <!--You accepted the Terms of service.-->
-     <!--</div>-->
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="alert alert-info" role="alert">
+      &lt;button class="close" data-dismiss="alert" type="button">&lt;span aria-hidden="true">×&lt;/span>&lt;/button>
+       You accepted the Terms of service.
+    &lt;/div>
    </code>
-   </pre>
+</pre>
+
+<h3 class="article-section__title">Contextual alerts</h3>
+
+<p>Set the <code>type</code> option to change the color (and semantic context) of the alert message.</p>
+<p>Available contexts are <code>:success</code>, <code>:info</code> (default), <code>:warning</code> and <code>:danger</code>.</p>
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= alert_box 'You accepted the Terms of service.', type: :success %>
+  </code>
+</pre>
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="alert alert-success" role="alert">
+    You accepted the Terms of service.
+  </div>
 </div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="alert alert-success" role="alert">You accepted the Terms of service.&lt;/div>
+   </code>
+</pre>
+
+<h3 class="article-section__title">Complex alerts</h3>
+<p>To include HTML tags or a long text in the alert, pass your content in a block.</p>
+<p>You can also specify custom options which will be added to the alert’s <code>div</code> tag.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= alert_box type: :warning, dismiss: true, id: 'alert', class: :en, data: {js: 1} do %></code>
+      <code class="language-markup" prism>&lt;em>Thanks!&lt;/em></code> <code class="language-ruby" prism>You accepted the &lt;%= link_to 'Terms of service', '/' %>.</code>
+    <code class="language-ruby" prism>&lt;% end %>
+    </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div id="alert" data-js="1" class="alert alert-warning en" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    <em>Thanks!</em> You accepted the <a href="/">Terms of service</a>.
+  </div>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;div id="alert" data-js="1" class="alert alert-warning en" role="alert">
+      &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close">&lt;span aria-hidden="true">×&lt;/span>&lt;/button>
+      &lt;em>Thanks!&lt;/em> You accepted the &lt;a href="/">Terms of service&lt;/a>.
+    &lt;/div>
+  </code>
+</pre>

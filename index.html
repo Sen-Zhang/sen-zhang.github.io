@@ -15,13 +15,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- font awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!--highlight-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 
+  <script src="js/directives/app_directives.js"></script>
+  <script src="js/prism.js"></script>
   <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/prism.css">
   <link rel="stylesheet" href="css/main.css">
-
 </head>
 <body ng-app="myBlog">
   <header class="site-header">
@@ -30,35 +29,35 @@
     </div>
 
     <div class="header-title">
-      <a href="#/home" title="Home" class="header-title__name">
+      <a href="#/home" title="Home" class="header-title__name a-blog">
         <h3>Sen Zhang</h3>
       </a>
       <div class="header-title__position">Engineer at GuideSpark</div>
     </div>
 
     <div class="header-socialnav">
-      <a class="header-socialnav__icon header-socialnav__icon--github"
+      <a class="header-socialnav__icon header-socialnav__icon--github a-blog"
          href="https://github.com/Sen-Zhang" target="_blank" title="GitHub">
         <i class="fa fa-github fa-2x"></i>
       </a>
-      <a class="header-socialnav__icon header-socialnav__icon--facebook"
+      <a class="header-socialnav__icon header-socialnav__icon--facebook a-blog"
          href="https://www.facebook.com/sen.zhang.370" target="_blank" title="Facebook">
         <i class="fa fa-facebook-official fa-2x"></i>
       </a>
-      <a class="header-socialnav__icon header-socialnav__icon--twitter"
+      <a class="header-socialnav__icon header-socialnav__icon--twitter a-blog"
          href="https://twitter.com/solowolf21" target="_blank" title="Twitter">
         <i class="fa fa-twitter-square fa-2x"></i>
       </a>
     </div>
     <div class="header-links">
       <div class="header-link-container">
-        <a class="header-link" href="#/home">Home</a>
+        <a class="header-link a-blog" href="#/home">Home</a>
       </div>
       <div class="header-link-container">
-        <a class="header-link" href="#/articles">Articles</a>
+        <a class="header-link a-blog" href="#/articles">Articles</a>
       </div>
       <div class="header-link-container">
-        <a class="header-link" href="#/about">About</a>
+        <a class="header-link a-blog" href="#/about">About</a>
       </div>
     </div>
   </header>

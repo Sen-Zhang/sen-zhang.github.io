@@ -1,7 +1,8 @@
 'use strict';
 
 var myBlog = angular.module('myBlog', [
-  'ui.router'
+  'ui.router',
+  'AppDirectives'
 ]);
 
 myBlog.config(function ($stateProvider, $urlRouterProvider) {
