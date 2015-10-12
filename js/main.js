@@ -22,52 +22,52 @@ myBlog.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'js/templates/about.html'
     })
     .state('bvg', {
-      url: '/articles/bootstrap_view_generator',
+      url: '/articles/bootstrap_ui_helper',
       views: {
         '': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/index.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/index.html'
         },
         'alerts@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/alerts.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/alerts.html'
         },
         'badges@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/badges.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/badges.html'
         },
         'labels@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/labels.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/labels.html'
         },
         'panels@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/panels.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/panels.html'
         },
         'panelRows@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/panel_rows.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/panel_rows.html'
         },
         'modals@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/modals.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/modals.html'
         },
         'navs@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/navs.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/navs.html'
         },
         'navbars@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/navbars.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/navbars.html'
         },
         'dropdowns@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/dropdowns.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/dropdowns.html'
         },
         'icons@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/icons.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/icons.html'
         },
         'progressBars@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/progress_bars.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/progress_bars.html'
         },
         'breadcrumbs@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/breadcrumbs.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/breadcrumbs.html'
         },
         'buttons@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/buttons.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/buttons.html'
         },
         'forms@bvg': {
-          templateUrl: 'js/templates/articles/bootstrap_view_generator/forms.html'
+          templateUrl: 'js/templates/articles/bootstrap_ui_helper/forms.html'
         }
       }
     });
