@@ -1,4 +1,69 @@
 <h2>Breadcrumb</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>breadcrumb</code> helper to display Bootstrap-styled breadcrumbs.</p>
+
+<h3 class="article-section__title">Basic breadcrumbs</h3>
+
+<p>Use <code>breadcrumb</code> without options to render a basic badge.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= breadcrumb [{text: 'Foo', link: '/bar'}, {text: 'Bar', link: '/bar'}, {text: 'Foobar', link: '/foobar'}] %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ol class="breadcrumb">
+    <li><a href="/foo">Foo</a></li>
+    <li><a href="/bar">Bar</a></li>
+    <li class="active">Foobar</li>
+  </ol>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ol class="breadcrumb">
+      &lt;li>&lt;a href="/foo">Foo&lt;/a>&lt;/li>
+      &lt;li>&lt;a href="/bar">Bar&lt;/a>&lt;/li>
+      &lt;li class="active">Foobar&lt;/li>
+    &lt;/ol>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Customize breadcrumb</h3>
+
+<p class="summary">Add options to breadcrumb container or to the links inside</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;<%= breadcrumb [{text: 'Foo', link: '/bar', class: 'bc-1'},
+                     {text: 'Bar', link: '/bar', class: 'bc-2'},
+                     {text: 'Foobar', link: '/foobar'}],
+                    id: 'breadcrumb', class: :en, data: {js: 1} %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ol id="breadcrumb" class="breadcrumb en" data-js="1">
+    <li><a class="bc-1" href="/bar">Foo</a></li>
+    <li><a class="bc-2" href="/bar">Bar</a></li>
+    <li class="active">Foobar</li>
+  </ol>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ol id="breadcrumb" class="breadcrumb en" data-js="1">
+      &lt;li>&lt;a class="bc-1" href="/bar">Foo&lt;/a>&lt;/li>
+      &lt;li>&lt;a class="bc-2" href="/bar">Bar&lt;/a>&lt;/li>
+      &lt;li class="active">Foobar&lt;/li>
+    &lt;/ol>
+  </code>
+</pre>
