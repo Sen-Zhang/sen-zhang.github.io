@@ -1,4 +1,118 @@
 <h2>Label</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>label_bui</code> helper to display Bootstrap-styled label.</p>
+
+<h3 class="article-section__title">Basic labels</h3>
+
+<p>Use <code>label_bui</code> without options to render a basic label.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= label_bui 'work in progress ...' %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <span class="label label-default">work in progress ...</span>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;span class="label label-default">work in progress ...&lt;/span>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Contextual label</h3>
+
+<p>Set the <code>type</code> option to change the color (and semantic context) of the label.</p>
+<p>Available contexts are <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code>, <code>:danger</code> and <code>:default</code> (default).</p>
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :primary %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :success %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :info %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :warning %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :danger %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= label_bui 'work in progress ...', type: :default %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <span class="label label-primary">work in progress ...</span>
+  <span class="label label-success">work in progress ...</span>
+  <span class="label label-info">work in progress ...</span>
+  <span class="label label-warning">work in progress ...</span>
+  <span class="label label-danger">work in progress ...</span>
+  <span class="label label-default">work in progress ...</span>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;span class="label label-primary">work in progress ...&lt;/span>
+    &lt;span class="label label-success">work in progress ...&lt;/span>
+    &lt;span class="label label-info">work in progress ...&lt;/span>
+    &lt;span class="label label-warning">work in progress ...&lt;/span>
+    &lt;span class="label label-danger">work in progress ...&lt;/span>
+    &lt;span class="label label-default">work in progress ...&lt;/span>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Customize label wrapper tag</h3>
+
+<p class="summary">Add <code>tag</code> option to change the label wrapper tag (<code>span</code> by default).</p>
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= label_bui 'work in progress ...', tag: :em %>
+  </code>
+</pre>
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <em class="label label-default">work in progress ...</em>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;em class="label label-default">work in progress ...&lt;/em>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex labels</h3>
+<p>You can also specify custom options which will be added to the label wrapper tag.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= label_bui 'work in progress ...', type: :success, id: 'label', class: :en, data: {js: 1}%>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <span id="label" class="label label-success en" data-js="1">work in progress ...</span>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;span id="label" class="label label-success en" data-js="1">work in progress ...&lt;/span>
+  </code>
+</pre>

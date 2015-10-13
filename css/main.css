@@ -256,3 +256,7 @@ ul {
 .well-marginless-bottom {
   margin-bottom: 0 !important;
 }
+
+.code-compact {
+  line-height: .8em !important;
+}
