@@ -1,4 +1,204 @@
 <h2>Button</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>button</code> helper to display Bootstrap-styled button.</p>
+
+<h3 class="article-section__title">Basic button</h3>
+
+<p>Use <code>button</code> without options to render a basic button.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= button 'Button' %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <button class="btn btn-default">Button</button>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button class="btn btn-default">Button&lt;/button>
+  </code>
+</pre>
+
+<p>To include HTML tags or a long text in the button, pass your content in a block.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= button do %></code>
+      <code class="language-markup" prism>&lt;span>Hello&lt;/span> &lt;em>World&lt;/em>!</code>
+    <code class="language-ruby" prism>&lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <button class="btn btn-default">
+    <span>Hello</span> <em>World</em>!
+  </button>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button class="btn btn-default">
+      &lt;span>Hello&lt;/span> &lt;em>World&lt;/em>!
+    &lt;/button>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Contextual button</h3>
+
+<p>Set the <code>type</code> option to change the color (and semantic context) of the button.</p>
+<p>Available contexts are <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code>, <code>:danger</code>, <code>:link</code> and <code>:default</code> (default).</p>
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= button 'Primary', type: :primary %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Success', type: :success %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Info', type: :info %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Warning', type: :warning %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Danger', type: :danger %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Link', type: :link %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Default', type: :default %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <button class="btn btn-primary">Primary</button>
+  <button class="btn btn-success">Success</button>
+  <button class="btn btn-info">Info</button>
+  <button class="btn btn-warning">Warning</button>
+  <button class="btn btn-danger">Danger</button>
+  <button class="btn btn-link">Link</button>
+  <button class="btn btn-default">Default</button>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button class="btn btn-primary">Primary&lt;/button>
+    &lt;button class="btn btn-success">Success&lt;/button>
+    &lt;button class="btn btn-info">Info&lt;/button>
+    &lt;button class="btn btn-warning">Warning&lt;/button>
+    &lt;button class="btn btn-danger">Danger&lt;/button>
+    &lt;button class="btn btn-link">Link&lt;/button>
+    &lt;button class="btn btn-default">Default&lt;/button>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Button Sizes</h3>
+
+<p>Set the <code>size</code> option to change the size of the button.</p>
+<p>Available sizes are <code>:large</code>, <code>:small</code> and <code>:xsmall</code>, and a default size would be applied if <code>size</code> option is left blank.</p>
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= button 'Large Button', size: :large %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Default Button' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Small Button', size: :small %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Extra Small Button', size: :xsmall %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <button class="btn btn-default btn-lg">Large Button</button>
+  <button class="btn btn-default">Default Button</button>
+  <button class="btn btn-default btn-sm">Small Button</button>
+  <button class="btn btn-default btn-xs">Extra Small Button</button>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button class="btn btn-default btn-lg">Large Button&lt;/button>
+    &lt;button class="btn btn-default">Default Button&lt;/button>
+    &lt;button class="btn btn-default btn-sm">Small Button&lt;/button>
+    &lt;button class="btn btn-default btn-xs">Extra Small Button&lt;/button>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Block level buttons</h3>
+
+<p>Set the <code>layout</code> option to <code>:block</code> to create block level buttons those that span the full with of a parent.</p>
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= button 'Block level button', type: :success, size: :large, layout: :block %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= button 'Block level button', type: :info, size: :large, layout: :block %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <div class="row row-fluid">
+    <div class="col-sm-6">
+      <button class="btn btn-success btn-lg btn-block">Block level button</button>
+      <button class="btn btn-info btn-lg btn-block">Block level button</button>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button class="btn btn-success btn-lg btn-block">Block level button&lt;/button>
+    &lt;button class="btn btn-info btn-lg btn-block">Block level button&lt;/button>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex buttons</h3>
+<p>You can also specify custom options which will be added to the button tag.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= button id: 'button', class: :en, data: {js: 1}, type: :warning, size: :large do %></code>
+      <code class="language-markup" prism>&lt;span>Hello&lt;/span> &lt;em>World&lt;/em>!</code>
+    <code class="language-ruby" prism>&lt;% end %>
+    </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <button id="button" class="btn btn-warning btn-lg en" data-js="1">
+    <span>Hello</span> <em>World</em>!
+  </button>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;button id="button" class="btn btn-warning btn-lg en" data-js="1">
+      &lt;span>Hello&lt;/span> &lt;em>World&lt;/em>!
+    &lt;/button>
+  </code>
+</pre>
