@@ -1,4 +1,182 @@
 <h2>Dropdown</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>dropdown</code> helper to display Bootstrap-styled dropdowns.</p>
+
+<h3 class="article-section__title">Basic dropdowns</h3>
+
+<p>Use <code>dropdown</code> with dropdown button text and dropdown list items details to create a basic dropdown.</p>
+<p>There are 3 list item types: <code>header</code>, <code>link</code> and <code>divider</code>.</p>
+<p><code>header</code>: only <code>text</code> option is required.</p>
+<p><code>link</code>: link <code>text</code> and path(<code>link</code>) are required.</p>
+<p><code>divider</code>: nothing is required.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= dropdown 'Dropdown', [{type: :header, text: 'Dropdown header'},
+                              {type: :link, text: 'Action', link: '/action'},
+                              {type: :link, text: 'Another action', link: '/another_action'},
+                              {type: :divider},
+                              {type: :header, text: 'Another dropdown header'},
+                              {type: :link, text: 'Separated link', link: '/separated_link'}] %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="btn-group dropdown">
+    <button name="button" type="submit" class="dropdown-toggle  btn btn-default" id="dropdown-44001d"
+            data-toggle="dropdown" aria-haspopup="true" aria-expended="false">Dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-44001d">
+      <li class="dropdown-header">Dropdown header</li>
+      <li>
+        <a role="menuitem" tabindex="-1" href="/action">Action</a>
+      </li>
+      <li>
+        <a role="menuitem" tabindex="-1" href="/another_action">Another action</a>
+      </li>
+      <li class="divider" role="separator"></li>
+      <li class="dropdown-header">Another dropdown header</li>
+      <li>
+        <a role="menuitem" tabindex="-1" href="/separated_link">Separated link</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="btn-group dropdown">
+      &lt;button name="button" type="submit" class="dropdown-toggle  btn btn-default" id="dropdown-44001d"
+              data-toggle="dropdown" aria-haspopup="true" aria-expended="false">Dropdown &lt;span class="caret">&lt;/span>
+      &lt;/button>
+      &lt;ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-44001d">
+        &lt;li class="dropdown-header">Dropdown header&lt;/li>
+        &lt;li>
+          &lt;a role="menuitem" tabindex="-1" href="/action">Action&lt;/a>
+        &lt;/li>
+        &lt;li>
+          &lt;a role="menuitem" tabindex="-1" href="/another_action">Another action&lt;/a>
+        &lt;/li>
+        &lt;li class="divider" role="separator">&lt;/li>
+        &lt;li class="dropdown-header">Another dropdown header&lt;/li>
+        &lt;li>
+          &lt;a role="menuitem" tabindex="-1" href="/separated_link">Separated link&lt;/a>
+        &lt;/li>
+      &lt;/ul>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">List item options</h3>
+
+<p>Simply put options into the list item hash to add options for it.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    &lt;%= dropdown 'Dropdown',
+                  [{type: :link, text: 'Action', link: '/action', class: 'action', data: {js: 1}},
+                   {type: :link, text: 'Another action', link: '/another_action', class: 'another-action', data: {js: 2}}] %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="btn-group dropdown">
+    <button name="button" type="button" id="dropdown-144d8f" data-toggle="dropdown" aria-haspopup="true"
+            aria-expended="false" class="dropdown-toggle btn btn-default">Dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-144d8f">
+      <li class="action" data-js="1">
+        <a role="menuitem" tabindex="-1" href="/action">Action</a>
+      </li>
+      <li class="another-action" data-js="2">
+        <a role="menuitem" tabindex="-1" href="/another_action">Another action</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="btn-group dropdown">
+      &lt;button name="button" type="button" id="dropdown-144d8f" data-toggle="dropdown" aria-haspopup="true"
+              aria-expended="false" class="dropdown-toggle btn btn-default">Dropdown &lt;span class="caret">&lt;/span>
+      &lt;/button>
+      &lt;ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-144d8f">
+        &lt;li class="action" data-js="1">
+          &lt;a role="menuitem" tabindex="-1" href="/action">Action&lt;/a>
+        &lt;/li>
+        &lt;li class="another-action" data-js="2">
+          &lt;a role="menuitem" tabindex="-1" href="/another_action">Another action&lt;/a>
+        &lt;/li>
+      &lt;/ul>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Dropdown button options</h3>
+
+<p>Add options after the first two params to customize the dropdown button. </p>
+<h4>Options:</h4>
+<p><code>type</code> (same as button): <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code>, <code>:danger</code>, <code>:link</code> and <code>:default</code> (default).</p>
+<p><code>size</code> (same as button): <code>:large</code>, <code>:small</code> and <code>:xsmall</code>, and a default size would be applied if <code>size</code> option is left blank.</p>
+<p><code>align</code>: <code>:left</code> and <code>:right</code>. By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add <code>align: :right</code> to right align the dropdown menu.</p>
+<p><code>direction</code>: Use <code>:up</code> and <code>:down</code> to change the caret's direction.</p>
+<p><code>btn_group_html</code>: Used to hold options for the dropdown's wrapper.</p>
+
+<pre>
+  <code class="language-ruby" prism>
+    <%= dropdown 'Dropdown',
+                 [{type: :link, text: 'Action', link: '/action'},
+                 {type: :link, text: 'Another action', link: '/another_action'},
+                 {type: :link, text: 'Separated link', link: '/separated_link'}],
+                 id:             'dropdown-btn',
+                 type:           :success,
+                 size:           :large,
+                 align:          :right,
+                 direction:      :up,
+                 class:          'en',
+                 data:           {js: 1},
+                 btn_group_html: {id: 'btn-group', class: 'zh', data: {js: 2}} %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div id="btn-group" class="btn-group dropup zh" data-js="2">
+    <button name="button" type="button" id="dropdown-btn" data-toggle="dropdown" data-js="1" aria-haspopup="true"
+            aria-expended="false" class="dropdown-toggle btn-lg btn btn-success en">Dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-btn">
+      <li><a role="menuitem" tabindex="-1" href="/action">Action</a></li>
+      <li><a role="menuitem" tabindex="-1" href="/another_action">Another action</a></li>
+      <li><a role="menuitem" tabindex="-1" href="/separated_link">Separated link</a></li>
+    </ul>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div id="btn-group" class="btn-group dropup zh" data-js="2">
+      &lt;button name="button" type="button" id="dropdown-btn" data-toggle="dropdown" data-js="1" aria-haspopup="true"
+              aria-expended="false" class="dropdown-toggle btn-lg btn btn-success en">Dropdown &lt;span class="caret">&lt;/span>
+      &lt;/button>
+      &lt;ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-btn">
+        &lt;li>&lt;a role="menuitem" tabindex="-1" href="/action">Action&lt;/a>&lt;/li>
+        &lt;li>&lt;a role="menuitem" tabindex="-1" href="/another_action">Another action&lt;/a>&lt;/li>
+        &lt;li>&lt;a role="menuitem" tabindex="-1" href="/separated_link">Separated link&lt;/a>&lt;/li>
+      &lt;/ul>
+    &lt;/div>
+  </code>
+</pre>
