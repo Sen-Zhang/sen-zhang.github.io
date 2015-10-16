@@ -1,4 +1,391 @@
 <h2>Panel</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>panel</code> helper to display Bootstrap-styled panel.</p>
+
+<h3 class="article-section__title">Basic panels</h3>
+
+<p>Use <code>panel</code> without options to render a basic panel along with <code>panel_heading</code>, <code>panel_title</code>,
+  <code>panel_body</code> and <code>panel_footer</code> to render each individual section inside the panel.</p>
+<p>To include HTML tags or a long text in the panel, pass your content in a block.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading 'Panel Heading' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_body 'Hello World' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_footer 'Panel Footer' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_title 'Panel Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_body 'Hello World' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_footer 'Panel Footer' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Panel Heading&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_body do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Hello World&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_footer do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Panel Footer&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_title do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+          &lt;em>Panel Title&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_body do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Hello World&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_footer do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Panel Footer&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Panel Heading</div>
+
+    <div class="panel-body">Hello World</div>
+
+    <div class="panel-footer">Panel Footer</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Panel Title</h3>
+    </div>
+    <div class="panel-body">Hello World</div>
+
+    <div class="panel-footer">Panel Footer</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <em>Panel Heading</em>
+    </div>
+    <div class="panel-body">
+      <em>Hello World</em>
+    </div>
+    <div class="panel-footer">
+      <em>Panel Footer</em>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <em>Panel Title</em>
+      </h3></div>
+    <div class="panel-body">
+      <em>Hello World</em>
+    </div>
+    <div class="panel-footer">
+      <em>Panel Footer</em>
+    </div>
+  </div>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="panel panel-default">
+      &lt;div class="panel-heading">Panel Heading&lt;/div>
+      &lt;div class="panel-body">Hello World&lt;/div>
+      &lt;div class="panel-footer">Panel Footer&lt;/div>
+    &lt;/div>
+
+    &lt;div class="panel panel-default">
+      &lt;div class="panel-heading">
+        &lt;h3 class="panel-title">Panel Title&lt;/h3>
+      &lt;/div>
+      &lt;div class="panel-body">Hello World&lt;/div>
+      &lt;div class="panel-footer">Panel Footer&lt;/div>
+    &lt;/div>
+
+    &lt;div class="panel panel-default">
+      &lt;div class="panel-heading">
+        &lt;em>Panel Heading&lt;/em>
+      &lt;/div>
+      &lt;div class="panel-body">
+        &lt;em>Hello World&lt;/em>
+      &lt;/div>
+      &lt;div class="panel-footer">
+        &lt;em>Panel Footer&lt;/em>
+      &lt;/div>
+    &lt;/div>
+
+    &lt;div class="panel panel-default">
+      &lt;div class="panel-heading">
+        &lt;h3 class="panel-title">
+          &lt;em>Panel Title&lt;/em>
+        &lt;/h3>&lt;/div>
+      &lt;div class="panel-body">
+        &lt;em>Hello World&lt;/em>
+      &lt;/div>
+      &lt;div class="panel-footer">
+        &lt;em>Panel Footer&lt;/em>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Contextual panels</h3>
+
+<p>Set the <code>type</code> option to change the color (and semantic context) of the panel header and border.</p>
+<p>Available contexts are <code>:primary</code>, <code>:success</code>, <code>:info</code>, <code>:warning</code>,
+  <code>:danger</code> and <code>:default</code>.</p>
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :primary do %> ... &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :success do %> ... &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :info do %> ... &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :warning do %> ... &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :danger do %> ... &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= panel type: :default do %> ... &lt;% end %>
+  </code>
+</pre>
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+  <div class="panel panel-warning">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+  <div class="panel panel-danger">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Panel Heading</div>
+    <div class="panel-body">Hello World</div>
+  </div>
+</div>
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="panel panel-primary"> ... &lt;/div>
+    &lt;div class="panel panel-success"> ... &lt;/div>
+    &lt;div class="panel panel-info"> ... &lt;/div>
+    &lt;div class="panel panel-warning"> ... &lt;/div>
+    &lt;div class="panel panel-danger"> ... &lt;/div>
+    &lt;div class="panel panel-default"> ... &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Customize panel title tag</h3>
+
+<p>By default the wrapper tag of panel title is <code>h3</code>, and you can set the <code>tag</code> option to change
+  it. This option is only supported by panel_helper.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_title 'Panel Title', tag: :span %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>- Hello World&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_body 'Hello World!' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="panel-title">Panel Title</span>
+      <em>- Hello World</em>
+    </div>
+    <div class="panel-body">Hello World!</div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="panel panel-default">
+      &lt;div class="panel-heading">
+        &lt;span class="panel-title">Panel Title&lt;/span>
+        &lt;em>- Hello World&lt;/em>
+      &lt;/div>
+      &lt;div class="panel-body">Hello World!&lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex panels</h3>
+
+<p>You can specify custom options which will be added to each panel section.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel id: 'panel', class: 'p', data: {js: 1} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_heading id: 'panel_heading', class: 'ph', data: {js: 2} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_title id: 'panel_title', class: 'pt', data: {js: 3} do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+          &lt;span>Panel Title&lt;/span>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+      &lt;%= panel_body 'Hello World', id: 'panel_body', class: 'pb', data: {js: 4} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel_footer 'panel footer', id: 'panel_footer', class: 'text-center', data: {js: 5} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div id="panel" class="panel panel-default p" data-js="1">
+    <div id="panel_heading" class="panel-heading ph" data-js="2">
+      <h3 id="panel_title" class="panel-title pt" data-js="3">
+        <span>Panel Title</span>
+      </h3></div>
+    <div id="panel_body" class="panel-body pb" data-js="4">Hello World</div>
+    <div id="panel_footer" class="panel-footer text-center" data-js="5">panel footer</div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div id="panel" class="panel panel-default p" data-js="1">
+      &lt;div id="panel_heading" class="panel-heading ph" data-js="2">
+        &lt;h3 id="panel_title" class="panel-title pt" data-js="3">
+          &lt;span>Panel Title&lt;/span>
+        &lt;/h3>&lt;/div>
+      &lt;div id="panel_body" class="panel-body pb" data-js="4">Hello World&lt;/div>
+      &lt;div id="panel_footer" class="panel-footer text-center" data-js="5">panel footer&lt;/div>
+    &lt;/div>
+  </code>
+</pre>
