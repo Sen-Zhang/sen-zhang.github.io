@@ -15,8 +15,8 @@ angular.module('AppDirectives', []).
     return {
       restrict: 'A',
       link: function ($scope, element) {
-        element.find('.fa').on('click', function () {
-          var $this = angular.element(this);
+        element.on('click', function () {
+          var $this = element.find('.fa');
 
           if ($this.hasClass('fa-plus')) {
             $this.removeClass('fa-plus').addClass('fa-minus');
