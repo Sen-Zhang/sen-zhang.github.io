@@ -1,4 +1,539 @@
 <h2>Modal</h2>
 <hr/>
 
-<div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>modal</code> helper to display Bootstrap-styled modal.</p>
+
+<h3 class="article-section__title">Basic modals</h3>
+
+<p>Use <code>modal</code> and <code>button_html</code> options to render a basic button and a modal along with
+  <code>modal_header</code>, <code>modal_title</code>, <code>modal_body</code> and <code>modal_footer</code> to render
+  each individual section inside the modal.</p>
+<p>To include HTML tags or a long text in the panel, pass your content in a block.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_footer 'Modal Footer' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= modal_title 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_footer 'Modal Footer' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Modal Heading&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Modal body&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_footer do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Modal Footer&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= modal_title do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+          &lt;em>Modal Title&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Modal body&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_footer do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+        &lt;em>Modal Footer&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <button data-toggle="modal" data-target="#modal-16f720" class="btn btn-default">Modal</button>
+  <div class="modal fade" id="modal-16f720" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4></div>
+        <div class="modal-body">Modal body</div>
+        <div class="modal-footer">Modal Footer</div>
+      </div>
+    </div>
+  </div>
+
+  <button data-toggle="modal" data-target="#modal-fd3c7e" class="btn btn-default">Modal</button>
+  <div class="modal fade" id="modal-fd3c7e" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4>
+        </div>
+        <div class="modal-body">Modal body</div>
+        <div class="modal-footer">Modal Footer</div>
+      </div>
+    </div>
+  </div>
+
+  <button data-toggle="modal" data-target="#modal-55d4b9" class="btn btn-default">Modal</button>
+  <div class="modal fade" id="modal-55d4b9" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <em>Modal Heading</em>
+        </div>
+        <div class="modal-body">
+          <em>Modal body</em>
+        </div>
+        <div class="modal-footer">
+          <em>Modal Footer</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button data-toggle="modal" data-target="#modal-bb0860" class="btn btn-default">Modal</button>
+  <div class="modal fade" id="modal-bb0860" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">
+            <em>Modal Title</em>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <em>Modal body</em>
+        </div>
+        <div class="modal-footer">
+          <em>Modal Footer</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button data-toggle="modal" data-target="#modal-16f720" class="btn btn-default">Modal&lt;/button>
+    &lt;div class="modal fade" id="modal-16f720" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>&lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+          &lt;div class="modal-footer">Modal Footer&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  
+    &lt;button data-toggle="modal" data-target="#modal-fd3c7e" class="btn btn-default">Modal&lt;/button>
+    &lt;div class="modal fade" id="modal-fd3c7e" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>
+          &lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+          &lt;div class="modal-footer">Modal Footer&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  
+    &lt;button data-toggle="modal" data-target="#modal-55d4b9" class="btn btn-default">Modal&lt;/button>
+    &lt;div class="modal fade" id="modal-55d4b9" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;em>Modal Heading&lt;/em>
+          &lt;/div>
+          &lt;div class="modal-body">
+            &lt;em>Modal body&lt;/em>
+          &lt;/div>
+          &lt;div class="modal-footer">
+            &lt;em>Modal Footer&lt;/em>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  
+    &lt;button data-toggle="modal" data-target="#modal-bb0860" class="btn btn-default">Modal&lt;/button>
+    &lt;div class="modal fade" id="modal-bb0860" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">
+              &lt;em>Modal Title&lt;/em>
+            &lt;/h4>
+          &lt;/div>
+          &lt;div class="modal-body">
+            &lt;em>Modal body&lt;/em>
+          &lt;/div>
+          &lt;div class="modal-footer">
+            &lt;em>Modal Footer&lt;/em>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Button Options</h3>
+
+<p>Options for the button are held in <code>button_html</code> and available options are the same as the
+  <code>button</code> helper except option <code>caption</code>.</p>
+<h4>Options:</h4>
+<p><strong><code>caption:</code></strong> text of the button.</p>
+<p><strong><code>size:</code></strong> <code>:large</code>, <code>:small</code> and <code>:xsmall</code>.</p>
+<p><strong><code>type:</code></strong> <code>:primary</code>, <code>:success</code>, <code>:info</code>,
+  <code>:warning</code>, <code>:danger</code>, <code>:link</code> and <code>:default</code> (default).</p>
+<p><strong><code>layout:</code></strong> <code>block</code>.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal button_html: {caption: 'Modal button', type: :success, size: :large} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <button data-toggle="modal" data-target="#modal-8d1093" class="btn btn-success btn-lg">Modal button</button>
+  <div class="modal fade" id="modal-8d1093" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4></div>
+        <div class="modal-body">Modal body</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button data-toggle="modal" data-target="#modal-8d1093" class="btn btn-success btn-lg">Modal button&lt;/button>
+    &lt;div class="modal fade" id="modal-8d1093" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>&lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Modal sizes</h3>
+
+<p>Use <code>size</code> option to customize modal size, and available options are <code>:small</code> and <code>:large</code></p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;% modal size: :large, button_html: {caption: 'Large modal'} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt;% modal size: :small, button_html: {caption: 'Small modal'} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <button data-toggle="modal" data-target="#modal-1cae6a" class="btn btn-default">Large modal</button>
+  <div class="modal fade" id="modal-1cae6a" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4></div>
+        <div class="modal-body">Modal body</div>
+      </div>
+    </div>
+  </div>
+
+  <button data-toggle="modal" data-target="#modal-d0d94d" class="btn btn-default">Small modal</button>
+  <div class="modal fade" id="modal-d0d94d" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4></div>
+        <div class="modal-body">Modal body</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button data-toggle="modal" data-target="#modal-1cae6a" class="btn btn-default">Large modal&lt;/button>
+    &lt;div class="modal fade" id="modal-1cae6a" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog modal-lg">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>&lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+
+    &lt;button data-toggle="modal" data-target="#modal-d0d94d" class="btn btn-default">Small modal&lt;/button>
+    &lt;div class="modal fade" id="modal-d0d94d" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog modal-sm">
+        &lt;div class="modal-content">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>&lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex modal container</h3>
+
+<p>Options for modal, modal dialog and modal content are also supported.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal id: 'm', class: 'm', data: {js: 1},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+              modal_dialog_html: {id: 'md', class: 'd', data: {js: 2}},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+              modal_content_html: {id: 'mc', class: 'c', data: {js: 3}} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header 'Modal Title' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Modal body' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <button data-toggle="modal" data-target="#m" class="btn btn-default">Modal</button>
+  <div id="m" class="modal fade m" data-js="1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="md" class="modal-dialog d" data-js="2">
+      <div id="mc" class="modal-content c" data-js="3">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <h4 class="modal-title">Modal Title</h4></div>
+        <div class="modal-body">Modal body</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button data-toggle="modal" data-target="#m" class="btn btn-default">Modal&lt;/button>
+    &lt;div id="m" class="modal fade m" data-js="1" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div id="md" class="modal-dialog d" data-js="2">
+        &lt;div id="mc" class="modal-content c" data-js="3">
+          &lt;div class="modal-header">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;h4 class="modal-title">Modal Title&lt;/h4>&lt;/div>
+          &lt;div class="modal-body">Modal body&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex modal sections</h3>
+
+<p>Options for modal header, modal title, modal body and modal footer are also supported.</p>
+<p>For modal title the default wrapper tag is <code>h4</code>, and you can customize it by using <code>tag</code> option.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= modal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_header id: 'mh', class: 'd', data: {js: 1} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= modal_title id: 'mt', class: 't', data: {js: 2}, tag: :span do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+          &lt;strong>Modal Title&lt;/strong>&lt;em> - Hello World&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_body 'Hello World!', id: 'mb', class: 'b', data: {js: 3} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= modal_footer 'modal footer', id: 'mf', class: 'f', data: {js: 4} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <button data-toggle="modal" data-target="#modal-55f36e" class="btn btn-default">Modal</button>
+  <div class="modal fade" id="modal-55f36e" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="mh" class="modal-header d" data-js="1">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span></button>
+          <span id="mt" class="modal-title t" data-js="2">
+            <strong>Modal Title</strong><em> - Hello World</em>
+          </span>
+        </div>
+        <div id="mb" class="modal-body b" data-js="3">Hello World!</div>
+        <div id="mf" class="modal-footer f" data-js="4">modal footer</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;button data-toggle="modal" data-target="#modal-55f36e" class="btn btn-default">Modal&lt;/button>
+    &lt;div class="modal fade" id="modal-55f36e" tabindex="-1" role="dialog" aria-hidden="true">
+      &lt;div class="modal-dialog">
+        &lt;div class="modal-content">
+          &lt;div id="mh" class="modal-header d" data-js="1">
+            &lt;button type="button" class="close" data-dismiss="modal">&lt;span aria-hidden="true">x&lt;/span>&lt;/button>
+            &lt;span id="mt" class="modal-title t" data-js="2">
+              &lt;strong>Modal Title&lt;/strong>&lt;em> - Hello World&lt;/em>
+            &lt;/span>
+          &lt;/div>
+          &lt;div id="mb" class="modal-body b" data-js="3">Hello World!&lt;/div>
+          &lt;div id="mf" class="modal-footer f" data-js="4">modal footer&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
