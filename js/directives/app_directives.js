@@ -10,4 +10,20 @@ angular.module('AppDirectives', []).
         });
       }
     }
+  }]).
+  directive('collapse', [function () {
+    return {
+      restrict: 'A',
+      link: function ($scope, element) {
+        element.find('.fa').on('click', function () {
+          var $this = angular.element(this);
+
+          if ($this.hasClass('fa-plus')) {
+            $this.removeClass('fa-plus').addClass('fa-minus');
+          } else {
+            $this.removeClass('fa-minus').addClass('fa-plus');
+          }
+        });
+      }
+    }
   }]);
