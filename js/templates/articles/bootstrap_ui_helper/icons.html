@@ -7,5 +7,428 @@
 <hr/>
 
 <div class="collapse" id="icon_doc">
-  <div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>icon</code> helper to render font awesome icons.</p>
+
+<h3 class="article-section__title">Basic icon</h3>
+
+<p>Use <code>icon</code> with the icon type to render a basic icon.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon :user %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :plus_square %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <i class="fa fa-user"></i>
+  <i class="fa fa-plus-square"></i>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;i class="fa fa-user">&lt;/i>
+    &lt;i class="fa fa-plus-square">&lt;/i>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Icon sizes</h3>
+
+<p>Customize icon size with <code>size</code> option: <code>:lg</code>, <code>2x</code>, <code>3x</code>,
+  <code>4x</code> and <code>5x</code></p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, size: :lg %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, size: '2x' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, size: '3x' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, size: '4x' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, size: '5x' %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <i class="fa fa-user fa-lg"></i>
+  <i class="fa fa-user fa-2x"></i>
+  <i class="fa fa-user fa-3x"></i>
+  <i class="fa fa-user fa-4x"></i>
+  <i class="fa fa-user fa-5x"></i>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;i class="fa fa-user fa-lg">&lt;/i>
+    &lt;i class="fa fa-user fa-2x">&lt;/i>
+    &lt;i class="fa fa-user fa-3x">&lt;/i>
+    &lt;i class="fa fa-user fa-4x">&lt;/i>
+    &lt;i class="fa fa-user fa-5x">&lt;/i>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Fixed Width Icons</h3>
+
+<p>Set <code>fw</code> option to true to render fixed width icons.</p>
+
+<pre>
+  <code class="language-markup code-compact" prism>
+    &lt;div class="list-group">
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;span class="list-group-item">
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= icon :home, fw: true %> Home
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;/span>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;span class="list-group-item">
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= icon :book, fw: true %> Library
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;/span>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;span class="list-group-item">
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= icon :pencil, fw: true %> Application
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;/span>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+    &lt;/div>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="list-group">
+    <span class="list-group-item">
+      <i class="fa fa-home fa-fw"></i> Home
+    </span>
+    <span class="list-group-item">
+      <i class="fa fa-book fa-fw"></i> Library
+    </span>
+    <span class="list-group-item">
+      <i class="fa fa-pencil fa-fw"></i> Application
+    </span>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div class="list-group">
+      &lt;span class="list-group-item">
+        &lt;i class="fa fa-home fa-fw">&lt;/i> Home
+      &lt;/span>
+      &lt;span class="list-group-item">
+        &lt;i class="fa fa-book fa-fw">&lt;/i> Library
+      &lt;/span>
+      &lt;span class="list-group-item">
+        &lt;i class="fa fa-pencil fa-fw">&lt;/i> Application
+      &lt;/span>
+    &lt;/div>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Bordered icons</h3>
+
+<p>Set <code>border</code> option to true to render a bordered icon.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon :user, border: true %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <i class="fa fa-user fa-border"></i>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;i class="fa fa-user fa-border">&lt;/i>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Pulled icons</h3>
+
+<p>Set <code>pull</code> option to <code>:right</code> or <code>:left</code> to render a pulled icon.</p>
+
+<pre>
+  <code class="language-markup code-compact" prism>
+    &lt;p>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon :user, size: '2x', pull: :left, border: true %>
+  </code><!--
+-->    ... tomorrow we will run faster, stretch out our arms farther...
+      And then one fine morning— So we beat on, boats against the current,
+      borne back ceaselessly into the past.<!--
+--><code class="language-markup code-compact" prism>
+    &lt;/p>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <div class="row">
+    <div class="col-sm-3">
+      <p>
+        <i class="fa fa-user fa-2x fa-border fa-pull-left"></i>
+        ... tomorrow we will run faster, stretch out our arms farther...
+        And then one fine morning— So we beat on, boats against the current,
+        borne back ceaselessly into the past.
+      </p>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;p>
+      &lt;i class="fa fa-user fa-2x fa-border fa-pull-left">&lt;/i>
+      ... tomorrow we will run faster, stretch out our arms farther...
+      And then one fine morning— So we beat on, boats against the current,
+      borne back ceaselessly into the past.
+    &lt;/p>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Animated Icons</h3>
+
+<p>Set <code>animate</code> option to <code>:spin</code> or <code>:pulse</code> to render animated icons.</p>
+<div class="alert alert-warning"><i class="fa fa-info-circle fa-lg"></i> CSS3 animations aren't supported in IE8 - IE9.</div>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon :spinner, animate: :spin %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :spinner, animate: :pulse %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <i class="fa fa-spinner fa-spin"></i>
+  <i class="fa fa-spinner fa-pulse"></i>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;i class="fa fa-spinner fa-spin">&lt;/i>
+    &lt;i class="fa fa-spinner fa-pulse">&lt;/i>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Rotated & Flipped Icons</h3>
+
+<p>Set <code>orientation</code> option to render animated icons.</p>
+<p>Available options are <code>:horizontal</code>, <code>:vertical</code>, <code>'90'</code>, <code>'180'</code>
+  and <code>'270'</code>.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield %> normal
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield, orientation: '90' %> fa-rotate-90
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield, orientation: '180' %> fa-rotate-180
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield, orientation: '270' %> fa-rotate-270
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield, orientation: :horizontal %> fa-rotate-horizontal
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= icon :shield, orientation: :vertical %> fa-rotate-vertical
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <i class="fa fa-shield"></i> normal <br>
+  <i class="fa fa-shield fa-rotate-90"></i> fa-rotate-90 <br>
+  <i class="fa fa-shield fa-rotate-180"></i> fa-rotate-180 <br>
+  <i class="fa fa-shield fa-rotate-270"></i> fa-rotate-270 <br>
+  <i class="fa fa-shield fa-flip-horizontal"></i> fa-flip-horizontal <br>
+  <i class="fa fa-shield fa-flip-vertical"></i> fa-flip-vertical <br>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;i class="fa fa-shield">&lt;/i> normal
+    &lt;i class="fa fa-shield fa-rotate-90">&lt;/i> fa-rotate-90
+    &lt;i class="fa fa-shield fa-rotate-180">&lt;/i> fa-rotate-180
+    &lt;i class="fa fa-shield fa-rotate-270">&lt;/i> fa-rotate-270
+    &lt;i class="fa fa-shield fa-flip-horizontal">&lt;/i> fa-flip-horizontal
+    &lt;i class="fa fa-shield fa-flip-vertical">&lt;/i> fa-flip-vertical
+  </code>
+</pre>
+
+<h3 class="article-section__title">List Icons</h3>
+
+<p><code>icon_list</code> and <code>icon_list_item</code> helpers to render list icons.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon_list do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item ' Home', icon_html: {type: :home} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item ' Library', icon_html: {type: :book} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item ' Settings', icon_html: {type: :cog} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;%= end 5>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <ul class="fa-ul">
+    <li><i class="fa fa-home"></i> Home</li>
+    <li><i class="fa fa-book"></i> Library</li>
+    <li><i class="fa fa-cog"></i> Settings</li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="fa-ul">
+      &lt;li>&lt;i class="fa fa-home">&lt;/i> Home&lt;/li>
+      &lt;li>&lt;i class="fa fa-book">&lt;/i> Library&lt;/li>
+      &lt;li>&lt;i class="fa fa-cog">&lt;/i> Settings&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<p>Options for <code>ul</code>, <code>li</code> and icons are also supported.</p>
+<p>To include HTML tags or a long text in the icon list item, pass your content in a block.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= icon_list id: 'il', class: 'cil', data: {js: 1} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item id: 'ili1', class: 'cili', data: {js: 2},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                         icon_html: {type: :home, id: 'i1', class: 'i', data: {js: 2}} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;em>Home&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item id: 'ili2', class: 'cili', data: {js: 3},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                         icon_html: {type: :book, id: 'i2', class: 'i', data: {js: 3}} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;em>Library&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= icon_list_item id: 'ili3', class: 'cili', data: {js: 4},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                          icon_html: {type: :cog, id: 'i3', class: 'i', data: {js: 4}} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;em>Settings&lt;/em>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <ul id="il" class="fa-ul cil" data-js="1">
+    <li id="ili1" class="cil" data-js="2"><i id="i1" class="fa fa-home i" data-js="2"></i>
+      <em>Home</em>
+    </li>
+    <li id="ili2" class="cil" data-js="3"><i id="i2" class="fa fa-book i" data-js="3"></i>
+      <em>Library</em>
+    </li>
+    <li id="ili3" class="cil" data-js="4"><i id="i3" class="fa fa-cog i" data-js="4"></i>
+      <em>Settings</em>
+    </li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul id="il" class="fa-ul cil" data-js="1">
+      &lt;li id="ili1" class="cili" data-js="2">&lt;i id="i1" class="fa fa-home i" data-js="2">&lt;/i>
+        &lt;em>Home&lt;/em>
+      &lt;/li>
+      &lt;li id="ili2" class="cili" data-js="3">&lt;i id="i2" class="fa fa-book i" data-js="3">&lt;/i>
+        &lt;em>Library&lt;/em>
+      &lt;/li>
+      &lt;li id="ili3" class="cili" data-js="4">&lt;i id="i3" class="fa fa-cog i" data-js="4">&lt;/i>
+        &lt;em>Settings&lt;/em>
+      &lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
 </div>
