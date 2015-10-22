@@ -7,5 +7,307 @@
 <hr/>
 
 <div class="collapse" id="nav_doc">
-  <div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>nav</code> helper to display Bootstrap-styled navs.</p>
+
+<h3 class="article-section__title">Basic navs</h3>
+
+<p>Use <code>nav</code> with <code>active</code> option to display the included links as a row of tabs.
+  <code>active</code> option is used to indicate which link is active, and link position index, link id and class are
+  all accepted as the active nav locator.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: 1 do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul class="nav nav-tabs" data-bui="nav" data-active-el-locator="1">
+    <li role="presentation"><a href="/home">Home</a></li>
+    <li role="presentation" class="active"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="nav nav-tabs" data-bui="nav" data-active-el-locator="1">
+      &lt;li role="presentation">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation" class="active">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<p>Use link id as the active locator.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: '#profile_url' do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile', id: 'profile_url' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul class="nav nav-tabs" data-bui="nav" data-active-el-locator="#profile_url">
+    <li role="presentation"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation" class="active"><a id="profile_url" href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="nav nav-tabs" data-bui="nav" data-active-el-locator="#profile_url">
+      &lt;li role="presentation">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation" class="active">&lt;a id="profile_url" href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navs with justified tabs</h3>
+
+<p>Use the <code>layout: :justified</code> option to make tabs occupy the entire width of their parent.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: 0, layout: :justified do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul class="nav nav-tabs nav-justified" data-bui="nav" data-active-el-locator="0">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="nav nav-tabs nav-justified" data-bui="nav" data-active-el-locator="0">
+      &lt;li role="presentation" class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navs with pills</h3>
+
+<p>Use the <code>as: :pills</code> option to make tabs look like pills.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: 0, as: :pills do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul class="nav nav-pills" data-bui="nav" data-active-el-locator="0">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="nav nav-pills" data-bui="nav" data-active-el-locator="0">
+      &lt;li role="presentation" class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navs with stacked pills</h3>
+
+<p>Use the <code>layout: :stacked</code> option to make pills vertically stacked.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: 0, as: :pills, layout: :stacked do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul class="nav nav-pills nav-stacked" data-bui="nav" data-active-el-locator="0">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul class="nav nav-pills nav-stacked" data-bui="nav" data-active-el-locator="0">
+      &lt;li role="presentation" class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Customize nav wrapper</h3>
+
+<p>Use <code>tag</code> option to change the nav's wrapper tag(<code>ul</code> by default).</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav active: 0, tag: :ol do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Home', '/home' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ol class="nav nav-tabs" data-bui="nav" data-active-el-locator="0">
+    <li role="presentation" class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ol>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ol class="nav nav-tabs" data-bui="nav" data-active-el-locator="0">
+      &lt;li role="presentation" class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ol>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex navs</h3>
+
+<p>To include HTML tags or a long text in the nav, pass your content in a block.
+  You can also specify custom options which will be added to the nav’s <code>ul</code> tag.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= nav as: :pills, id: 'nav', class: :en, data: {js: 1} do %>
+  </code><!--
+--><code class="language-markup code-compact" prism>
+      &lt;li class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Users', '/users' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= link_to 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+</code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <ul id="nav" class="nav nav-pills en" data-js="1" data-bui="nav" data-active-el-locator="null">
+    <li class="active"><a href="/home">Home</a></li>
+    <li role="presentation"><a href="/users">Users</a></li>
+    <li role="presentation"><a href="/profile">Profile</a></li>
+  </ul>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;ul id="nav" class="nav nav-pills en" data-js="1" data-bui="nav" data-active-el-locator="null">
+      &lt;li class="active">&lt;a href="/home">Home&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/users">Users&lt;/a>&lt;/li>
+      &lt;li role="presentation">&lt;a href="/profile">Profile&lt;/a>&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
 </div>

@@ -260,7 +260,3 @@ ul {
 .code-compact {
   line-height: .8em !important;
 }
-
-code[class*="language-"] {
-  word-wrap: break-word;
-}
