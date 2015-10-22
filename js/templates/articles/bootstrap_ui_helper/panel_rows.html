@@ -7,5 +7,72 @@
 <hr/>
 
 <div class="collapse" id="panel_row_doc">
-  <div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>panel_row</code> helper to display a row of horizontally-aligned Bootstrap-styled
+  panels.</p>
+
+<h3 class="article-section__title">Basic row of panels</h3>
+
+<p>Use <code>panel_row</code> with the :column_class option to wrap panels of the same size in a row.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= panel_row column_class: 'col-sm-6' do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_body 'Hello' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+      &lt;%= panel do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= panel_body 'World' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <div data-bui="panel_row" data-column-class="col-sm-6" class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body">Hello</div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-body">World</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;div data-bui="panel_row" data-column-class="col-sm-6" class="row">
+      &lt;div class="col-sm-6">
+        &lt;div class="panel panel-default">
+          &lt;div class="panel-body">Hello&lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="col-sm-6">
+        &lt;div class="panel panel-default">
+          &lt;div class="panel-body">World&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
 </div>
