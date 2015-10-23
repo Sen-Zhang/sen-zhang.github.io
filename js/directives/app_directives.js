@@ -26,4 +26,16 @@ angular.module('AppDirectives', []).
         });
       }
     }
+  }]).
+  directive('toggle', [function () {
+    return {
+      restrict: 'A',
+      scope: true,
+      link: function ($scope, element) {
+        element.find('.toggle_btn').on('click', function () {
+          $scope.show = !$scope.show;
+          $scope.$apply();
+        });
+      }
+    }
   }]);

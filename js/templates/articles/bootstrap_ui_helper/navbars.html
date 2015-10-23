@@ -7,5 +7,602 @@
 <hr/>
 
 <div class="collapse" id="navbar_doc">
-  <div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>navbar</code> helper to display Bootstrap-styled navbars.</p>
+
+<h3 class="article-section__title">Basic navbars</h3>
+
+<p>Use <code>navbar</code> without options to render a basic navbar.</p>
+<p>Wrap the content that should always be visible (no matter the screen size) with the <code>vertical</code> helper.</p>
+<p>Wrap the content that should be collapsed for small screen sizes with the <code>horizontal</code> helper.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= horizontal do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_menu do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_link 'Link', '/link', active: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_dropdown 'Dropdown',
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                               [{type: :header, text: 'Dropdown header'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Action', link: '/action'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Another action', link: '/another_action'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :divider},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :header, text: 'Another dropdown header'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Separated link', link: '/separated_link'}] %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_menu position: :right do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_link 'Another Link', '/alink' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_dropdown 'Another Dropdown',
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                               [{type: :header, text: 'Dropdown header'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Action', link: '/action'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Another action', link: '/another_action'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :divider},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :header, text: 'Another dropdown header'},
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+                                {type: :link, text: 'Separated link', link: '/separated_link'}] %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar with the following content (try resizing your browser):</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <nav class="navbar navbar-default" data-bui="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false"
+                data-target="#ax8blhxgvi">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Brand</a>
+      </div>
+      <div class="collapse navbar-collapse" id="ax8blhxgvi">
+        <ul class="nav navbar-nav">
+          <li class="active"><a class="navbar-link" href="/link">Link</a></li>
+          <li class="btn-group dropdown">
+            <a id="dropdown-ba9fe0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expended="false"
+               class="dropdown-toggle" href="#">
+              Dropdown<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-ba9fe0">
+              <li class="dropdown-header">Dropdown header</li>
+              <li><a role="menuitem" tabindex="-1" href="/action">Action</a></li>
+              <li><a role="menuitem" tabindex="-1" href="/another_action">Another action</a></li>
+              <li class="divider" role="separator"></li>
+              <li class="dropdown-header">Another dropdown header</li>
+              <li><a role="menuitem" tabindex="-1" href="/separated_link">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="navbar-link" href="/alink">Another Link</a></li>
+          <li class="btn-group dropdown">
+            <a id="dropdown-09d400" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expended="false"
+               class="dropdown-toggle" href="#">
+              Another Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-09d400">
+              <li class="dropdown-header">Dropdown header</li>
+              <li><a role="menuitem" tabindex="-1" href="/action">Action</a></li>
+              <li><a role="menuitem" tabindex="-1" href="/another_action">Another action</a></li>
+              <li class="divider" role="separator"></li>
+              <li class="dropdown-header">Another dropdown header</li>
+              <li><a role="menuitem" tabindex="-1" href="/separated_link">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;nav class="navbar navbar-default" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false"
+                  data-target="#ax8blhxgvi">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+        &lt;div class="collapse navbar-collapse" id="ax8blhxgvi">
+          &lt;ul class="nav navbar-nav">
+            &lt;li class="active">&lt;a class="navbar-link" href="/link">Link&lt;/a>&lt;/li>
+            &lt;li class="btn-group dropdown">
+              &lt;a id="dropdown-ba9fe0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expended="false"
+                 class="dropdown-toggle" href="#">
+                Dropdown&lt;span class="caret">&lt;/span>
+              &lt;/a>
+              &lt;ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-ba9fe0">
+                &lt;li class="dropdown-header">Dropdown header&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/action">Action&lt;/a>&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/another_action">Another action&lt;/a>&lt;/li>
+                &lt;li class="divider" role="separator">&lt;/li>
+                &lt;li class="dropdown-header">Another dropdown header&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/separated_link">Separated link&lt;/a>&lt;/li>
+              &lt;/ul>
+            &lt;/li>
+          &lt;/ul>
+          &lt;ul class="nav navbar-nav navbar-right">
+            &lt;li>&lt;a class="navbar-link" href="/alink">Another Link&lt;/a>&lt;/li>
+            &lt;li class="btn-group dropdown">
+              &lt;a id="dropdown-09d400" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expended="false"
+                 class="dropdown-toggle" href="#">
+                Another Dropdown &lt;span class="caret">&lt;/span>
+              &lt;/a>
+              &lt;ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdown-09d400">
+                &lt;li class="dropdown-header">Dropdown header&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/action">Action&lt;/a>&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/another_action">Another action&lt;/a>&lt;/li>
+                &lt;li class="divider" role="separator">&lt;/li>
+                &lt;li class="dropdown-header">Another dropdown header&lt;/li>
+                &lt;li>&lt;a role="menuitem" tabindex="-1" href="/separated_link">Separated link&lt;/a>&lt;/li>
+              &lt;/ul>
+            &lt;/li>
+          &lt;/ul>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navbars with inverted colors</h3>
+
+<p>Use the <code>:inverse</code> option to invert the palette of colors of the navbar.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar inverse: true do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar with a black background:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <nav class="navbar navbar-inverse" data-bui="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Brand</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;nav class="navbar navbar-inverse" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navbars with a fluid container</h3>
+
+<p>Use the <code>:fluid</code> option for a full width navbar, spanning the entire width of your viewport.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar fluid: true do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar with a fluid container:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <nav class="navbar navbar-default" data-bui="navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Brand</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;nav class="navbar navbar-default" data-bui="navbar">
+      &lt;div class="container-fluid">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Static navbars</h3>
+
+<p>Use the <code>position: :static</code> option to have the navbar scroll away with the page.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar position: :static do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar that scrolls away with the page:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <nav class="navbar navbar-default navbar-static-top" data-bui="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Brand</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;nav class="navbar navbar-default navbar-static-top" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navbars fixed to top</h3>
+
+<p>Use the <code>position: :top</code> option to fix the navbar at the top of the page.</p>
+<p>Set the <code>:padding</code> option to specify the padding to leave between the top of the page and the body
+  (defaults to 70px).</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar position: :top do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar fixed to the top with a padding of 70px (click the button to show/hide):</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <div toggle>
+    <button class="btn btn-info toggle_btn">
+      <span ng-show="!show">Show the navbar</span>
+      <span ng-show="show">Hide the navbar</span>
+    </button>
+    <style ng-if="show">body {padding-top: 70px}</style>
+    <nav  ng-show="show" class="navbar navbar-default navbar-fixed-top" data-bui="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Brand</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;style>body {padding-top: 70px}&lt;/style>
+    &lt;nav class="navbar navbar-default navbar-fixed-top" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Navbars fixed to bottom</h3>
+
+<p>Use the <code>position: :bottom</code> option to fix the navbar at the bottom of the page.</p>
+<p>Set the <code>:padding</code> option to specify the padding to leave between the bottom of the page and the body
+  (defaults to 70px).</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar position: :bottom, padding: 100 do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Brand', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar fixed to the bottom with a padding of 100px (click the button to show/hide):</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <div toggle>
+    <button class="btn btn-info toggle_btn">
+      <span ng-show="!show">Show the navbar</span>
+      <span ng-show="show">Hide the navbar</span>
+    </button>
+    <style ng-if="show">body {padding-bottom: 100px}</style>
+    <nav  ng-show="show" class="navbar navbar-default navbar-fixed-bottom" data-bui="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Brand</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;style>body {padding-bottom: 100px}&lt;/style>
+    &lt;nav class="navbar navbar-default navbar-fixed-bottom" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div class="navbar-header">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Brand&lt;/a>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Complex navbars</h3>
+
+<p>You can specify a custom id which will be used for the navbar’s collapsable <code>div</code>.</p>
+<p>You can also specify custom options in the vertical and horizontal helpers which will be added to
+  their <code>div</code> tags.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt;%= navbar id: 'navbar' do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= vertical id: 'vertical', class: :en, data: {js: 1} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_brand 'Home', '/' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= horizontal class: :en, data: {js: 2} do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;%= navbar_menu position: :right do %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_link 'Profile', '/profile' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+          &lt;%= navbar_link 'Settings', '/settings' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+        &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;% end %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt;% end %>
+  </code>
+</pre>
+
+<p>generates a navbar fixed to the bottom with a padding of 100px (click the button to show/hide):</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+  <div toggle>
+    <nav id="navbar" class="navbar navbar-default" data-bui="navbar">
+      <div class="container">
+        <div id="vertical" class="navbar-header en" data-js="1">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false"
+                  data-target="#hcxx3g3z0k9">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="collapse navbar-collapse en" data-js="2" id="hcxx3g3z0k9">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-link" href="/profile">Profile</a></li>
+            <li><a class="navbar-link" href="/settings">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;nav id="navbar" class="navbar navbar-default" data-bui="navbar">
+      &lt;div class="container">
+        &lt;div id="vertical" class="navbar-header en" data-js="1">
+          &lt;button class="navbar-toggle collapsed" type="button" data-toggle="collapse" aria-expanded="false"
+                  data-target="#hcxx3g3z0k9">
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+            &lt;span class="icon-bar">&lt;/span>
+          &lt;/button>
+          &lt;a class="navbar-brand" href="/">Home&lt;/a>
+        &lt;/div>
+        &lt;div class="collapse navbar-collapse en" data-js="2" id="hcxx3g3z0k9">
+          &lt;ul class="nav navbar-nav navbar-right">
+            &lt;li>&lt;a class="navbar-link" href="/profile">Profile&lt;/a>&lt;/li>
+            &lt;li>&lt;a class="navbar-link" href="/settings">Settings&lt;/a>&lt;/li>
+          &lt;/ul>
+        &lt;/div>
+      &lt;/div>
+    &lt;/nav>
+  </code>
+</pre>
 </div>
