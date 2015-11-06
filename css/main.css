@@ -238,6 +238,10 @@ ul {
   margin-top: 40px;
 }
 
+.article-section__subtitle {
+  margin-top: 30px;
+}
+
 .summary {
   margin: 20px 0;
   font-size: 1.5em;
@@ -259,4 +263,13 @@ ul {
 
 .code-compact {
   line-height: .8em !important;
+}
+
+/* code example */
+.input-group-addon {
+  min-width: 40px;
+}
+
+.form-horizontal input[type='file'] {
+  padding-top: 7px;
 }

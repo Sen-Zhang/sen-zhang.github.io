@@ -1,4 +1,4 @@
-<h2>Form
+<h2>Forms (Rails only)
   <button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#form_doc"
           aria-expanded="false" aria-controls="collapseExample" collapse>
     <i class="fa fa-lg fa-plus"></i>
@@ -7,5 +7,1022 @@
 <hr/>
 
 <div class="collapse" id="form_doc">
-  <div class="alert alert-warning">work in progress ...</div>
+<p class="summary">Use the <code>form_for</code> helper to display Bootstrap-styled forms.</p>
+<p>bootstrap_ui_helper engine override the original form_for and almost all input field helper methods.</p>
+
+<h3 class="article-section__title">Basic forms</h3>
+
+<p>Use <code>form_for</code> without options to add Bootstrap style to the form elements.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, placeholder: 'Email' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, placeholder: 'Password' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.check_box :remember_me, label: 'Remember me' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.submit 'Sign in', type: 'primary' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="" for="user_email">Email</label>
+      <input placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+    </div>
+    <div class="form-group">
+      <label class="" for="user_password">Password</label>
+      <input placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input name="user[remember_me]" type="hidden" value="0">
+        <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me</label>
+    </div>
+    <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &ltform class="form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &ltdiv class="form-group">
+        &ltlabel class="" for="user_email">Email&lt/label>
+        &ltinput placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+      &lt/div>
+      &ltdiv class="form-group">
+        &ltlabel class="" for="user_password">Password&lt/label>
+        &ltinput placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+      &lt/div>
+      &ltdiv class="checkbox">
+        &ltlabel>
+          &ltinput name="user[remember_me]" type="hidden" value="0">
+          &ltinput type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me&lt/label>
+      &lt/div>
+      &ltinput type="submit" name="commit" value="Sign in" class="btn btn-primary">
+    &lt/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Horizontal forms</h3>
+
+<p>Use <code>form_for</code> with <code>layout: :horizontal</code> to align labels and groups of form controls in a
+  horizontal layout. The ratio of label and input field length is <code>1:3(col-sm-3, col-sm-9).</code></p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, placeholder: 'Email' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, placeholder: 'Password' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.check_box :remember_me, label: 'Remember me' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.submit 'Sign in', type: 'primary' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_email">Email</label>
+      <div class="col-sm-9">
+        <input placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_password">Password</label>
+      <div class="col-sm-9">
+        <input placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <div class="checkbox">
+          <label>
+            <input name="user[remember_me]" type="hidden" value="0">
+            <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_email">Email&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;input placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_password">Password&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;input placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div class="col-sm-offset-3 col-sm-9">
+          &lt;div class="checkbox">
+            &lt;label>
+              &lt;input name="user[remember_me]" type="hidden" value="0">
+              &lt;input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+            &lt;/label>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div class="col-sm-offset-3 col-sm-9">
+          &lt;input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Inline forms</h3>
+
+<p>Use <code>form_for</code> with <code>layout: :inline</code> for left-aligned and inline-block controls.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path, layout: :inline do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, placeholder: 'Email' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, placeholder: 'Password' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.check_box :remember_me, label: 'Remember me', checked: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.submit 'Sign in', type: 'primary' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-inline" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="sr-only" for="user_email">Email</label>
+      <input placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="user_password">Password</label>
+      <input placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+    </div>
+    <div class="checkbox">
+      <label>
+        <input name="user[remember_me]" type="hidden" value="0">
+        <input type="checkbox" value="1" checked="checked" name="user[remember_me]" id="user_remember_me">Remember me
+      </label>
+    </div>
+    <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-inline" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="sr-only" for="user_email">Email&lt;/label>
+        &lt;input placeholder="Email" class="form-control" type="text" value="" name="user[email]" id="user_email">
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="sr-only" for="user_password">Password&lt;/label>
+        &lt;input placeholder="Password" class="form-control" type="password" name="user[password]" id="user_password">
+      &lt;/div>
+      &lt;div class="checkbox">
+        &lt;label>
+          &lt;input name="user[remember_me]" type="hidden" value="0">
+          &lt;input type="checkbox" value="1" checked="checked" name="user[remember_me]" id="user_remember_me">Remember me
+        &lt;/label>
+      &lt;/div>
+      &lt;input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Labels</h3>
+<p>Field helpers inside bootstrapped forms are automatically displayed with their relative label expect for check_box
+  and radio_button. Use the <code>:label</code> option if you need to customize the generated label.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, label: 'Your Email' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, label: false %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.check_box :remember_me, label: 'Remember me' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.submit 'Sign in', type: 'primary' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_email">You Email</label>
+      <div class="col-sm-9">
+        <input class="form-control" type="text" value="" name="user[email]" id="user_email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label sr-only" for="user_password">Password</label>
+      <div class="col-sm-9">
+        <input class="form-control" type="password" name="user[password]" id="user_password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <div class="checkbox">
+          <label>
+            <input name="user[remember_me]" type="hidden" value="0">
+            <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_email">You Email&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;input class="form-control" type="text" value="" name="user[email]" id="user_email">
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label sr-only" for="user_password">Password&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;input class="form-control" type="password" name="user[password]" id="user_password">
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div class="col-sm-offset-3 col-sm-9">
+          &lt;div class="checkbox">
+            &lt;label>
+              &lt;input name="user[remember_me]" type="hidden" value="0">
+              &lt;input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+            &lt;/label>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div class="col-sm-offset-3 col-sm-9">
+          &lt;input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Placeholders</h3>
+<p>Use the <code>:placeholder</code> option if you need to customize the generated placeholder.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, placeholder: 'At least 8 characters' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_password">Password</label>
+      <div class="col-sm-9">
+        <input placeholder="At least 8 characters" class="form-control" type="password" name="user[password]"
+               id="user_password">
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_password">Password&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;input placeholder="At least 8 characters" class="form-control" type="password" name="user[password]"
+                 id="user_password">
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Input groups</h3>
+<p>Field helpers inside bootstrapped forms accept the <code>:prefix</code> and <code>:suffix</code> options.
+  Their values are displayed before/after the field as input groups. You can use strings or icons.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, prefix: {icon: :envelope}, suffix: {icon: :envelope} %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :amount, prefix: '$', suffix: '.00' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_email">Email</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+          <input class="form-control" type="text" value="" name="user[email]" id="user_email">
+          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_amount">Amount</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input class="form-control" type="text" name="user[amount]" id="user_amount">
+          <span class="input-group-addon">.00</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-horizontal" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_email">Email&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;div class="input-group">
+            &lt;span class="input-group-addon">&lt;i class="fa fa-envelope">&lt;/i>&lt;/span>
+            &lt;input class="form-control" type="text" value="" name="user[email]" id="user_email">
+            &lt;span class="input-group-addon">&lt;i class="fa fa-envelope">&lt;/i>&lt;/span>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_amount">Amount&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;div class="input-group">
+            &lt;span class="input-group-addon">$&lt;/span>
+            &lt;input class="form-control" type="text" name="user[amount]" id="user_amount">
+            &lt;span class="input-group-addon">.00&lt;/span>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Help text</h3>
+
+<p>Use <code>help</code> to display a help message after fields inside bootstrapped forms.</p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.text_field :email, help: 'We will send a confirmation email' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.password_field :password, help: 'Do not use "password"' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.check_box :remember_me, label: 'Remember me', help: 'Keep signed in for a week' %> %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt%= f.submit 'Sign in', type: 'primary' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="" for="user_email">Email</label>
+      <input class="form-control" type="text" value="" name="user[email]" id="user_email">
+      <span class="help-block text-left">We will send a confirmation email</span>
+    </div>
+    <div class="form-group">
+      <label class="" for="user_password">Password</label>
+      <input class="form-control" type="password" name="user[password]" id="user_password">
+      <span class="help-block text-left">Do not use "password"</span>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input name="user[remember_me]" type="hidden" value="0">
+        <input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+      </label>
+    </div>
+    <span class="help-block text-left">Keep signed in for a week</span>
+    <input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="" for="user_email">Email&lt;/label>
+        &lt;input class="form-control" type="text" value="" name="user[email]" id="user_email">
+        &lt;span class="help-block text-left">We will send a confirmation email&lt;/span>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="" for="user_password">Password&lt;/label>
+        &lt;input class="form-control" type="password" name="user[password]" id="user_password">
+        &lt;span class="help-block text-left">Do not use "password"&lt;/span>
+      &lt;/div>
+      &lt;div class="checkbox">
+        &lt;label>
+          &lt;input name="user[remember_me]" type="hidden" value="0">
+          &lt;input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">Remember me
+        &lt;/label>
+      &lt;/div>
+      &lt;span class="help-block text-left">Keep signed in for a week&lt;/span>
+      &lt;input type="submit" name="commit" value="Sign in" class="btn btn-primary">
+    &lt;/form>
+  </code>
+</pre>
+
+<h3 class="article-section__title">Supported Controls</h3>
+<h4 class="article-section__subtitle">Inputs</h4>
+
+<p>Most common form control, text-based input fields helper methods are override to include bootstrap styled form 
+  inputs: <code>:email_field</code>, <code>:password_field</code>, <code>:text_field</code>, <code>:text_area</code>,
+    <code>:search_field</code>, <code>:telephone_field</code>, <code>:url_field</code>, <code>:number_field</code>,
+    <code>:file_field</code>, <code>:date_field</code>, <code>:time_field</code>, <code>:month_field</code>,
+    <code>:week_field</code>, <code>:datetime_field</code>, <code>:datetime_local_field</code></p>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for User.new, url: new_user_session_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.email_field :email %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.password_field :password %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.text_field :first_name %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.telephone_field :phone %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.number_field :count %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.file_field :avatar %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.text_area :content %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.date_field :confirmed_at %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.datetime_local_field :locked_at %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form form-horizontal" id="new_user" enctype="multipart/form-data" action="/users/sign_in"
+        accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_email">Email</label>
+      <div class="col-sm-9"><input class="form-control" type="email" value="" name="user[email]" id="user_email"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_password">Password</label>
+      <div class="col-sm-9"><input class="form-control" type="password" name="user[password]" id="user_password"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_first_name">First name</label>
+      <div class="col-sm-9"><input class="form-control" type="text" name="user[first_name]" id="user_first_name"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_phone">Phone</label>
+      <div class="col-sm-9"><input class="form-control" type="tel" name="user[phone]" id="user_phone"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_count">Count</label>
+      <div class="col-sm-9"><input class="form-control" type="number" name="user[count]" id="user_count"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_avatar">Avatar</label>
+      <div class="col-sm-9"><input type="file" name="user[avatar]" id="user_avatar"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_content">Content</label>
+      <div class="col-sm-9"><textarea class="form-control" name="user[content]" id="user_content"></textarea></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_confirmed_at">Confirmed at</label>
+      <div class="col-sm-9"><input class="form-control" type="date" name="user[confirmed_at]" id="user_confirmed_at"></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="user_locked_at">Locked at</label>
+      <div class="col-sm-9"><input class="form-control" type="datetime-local" name="user[locked_at]"
+                                   id="user_locked_at"></div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form form-horizontal" id="new_user" enctype="multipart/form-data" action="/users/sign_in"
+          accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_email">Email&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="email" value="" name="user[email]" id="user_email">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_password">Password&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="password" name="user[password]" id="user_password">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_first_name">First name&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="text" name="user[first_name]" id="user_first_name">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_phone">Phone&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="tel" name="user[phone]" id="user_phone">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_count">Count&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="number" name="user[count]" id="user_count">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_avatar">Avatar&lt;/label>
+        &lt;div class="col-sm-9">&lt;input type="file" name="user[avatar]" id="user_avatar">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_content">Content&lt;/label>
+        &lt;div class="col-sm-9">&lt;textarea class="form-control" name="user[content]" id="user_content">&lt;/textarea>&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_confirmed_at">Confirmed at&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="date" name="user[confirmed_at]" id="user_confirmed_at">&lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="user_locked_at">Locked at&lt;/label>
+        &lt;div class="col-sm-9">&lt;input class="form-control" type="datetime-local" name="user[locked_at]"
+                                     id="user_locked_at">&lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h4 class="article-section__subtitle">Selects</h4>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.select :owner, User.all.collect { |u| [u.full_name, u.id] } %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.select :owner, User.all.collect { |u| [u.full_name, u.id] } %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="" for="project_owner">Owner</label>
+      <select class="form-control" name="project[owner]" id="project_owner">
+        <option value="1">Foo Bar</option>
+        <option value="2">Bar Foo</option>
+      </select>
+    </div>
+  </form>
+
+  <hr>
+
+  <form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="project_owner">Owner</label>
+      <div class="col-sm-9">
+        <select class="form-control" name="project[owner]" id="project_owner">
+          <option value="1">Foo Bar</option>
+          <option value="2">Bar Foo</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="" for="project_owner">Owner&lt;/label>
+        &lt;select class="form-control" name="project[owner]" id="project_owner">
+          &lt;option value="1">Foo Bar&lt;/option>
+          &lt;option value="2">Bar Foo&lt;/option>
+        &lt;/select>
+      &lt;/div>
+    &lt;/form>
+    &lt;form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label" for="project_owner">Owner&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;select class="form-control" name="project[owner]" id="project_owner">
+            &lt;option value="1">Foo Bar&lt;/option>
+            &lt;option value="2">Bar Foo&lt;/option>
+          &lt;/select>
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h4 class="article-section__subtitle">Checkboxes</h4>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_check_boxes :participants, User.all, :id, :full_name, label: 'Participants' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_check_boxes :participants, User.all, :id, :full_name, label: 'Participants', inline: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_check_boxes :participants, User.all, :id, :full_name, label: 'Participants' %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_check_boxes :participants, User.all, :id, :full_name, label: 'Participants', inline: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <div><label class="">Participants</label></div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+        </label>
+      </div>
+      <input type="hidden" name="project[participants][]" value="">
+    </div>
+    <div class="form-group">
+      <div><label class="">Participants</label></div>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+      </label>
+      <input type="hidden" name="project[participants][]" value="">
+    </div>
+  </form>
+
+  <hr>
+
+  <form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Participants</label>
+      <div class="col-sm-9">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+          </label>
+        </div>
+        <input type="hidden" name="project[participants][]" value=""></div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Participants</label>
+      <div class="col-sm-9">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+        </label>
+        <input type="hidden" name="project[participants][]" value="">
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;div>&lt;label class="">Participants&lt;/label>&lt;/div>
+        &lt;div class="checkbox">
+          &lt;label>
+            &lt;input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+          &lt;/label>
+        &lt;/div>
+        &lt;div class="checkbox">
+          &lt;label>
+            &lt;input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+          &lt;/label>
+        &lt;/div>
+        &lt;input type="hidden" name="project[participants][]" value="">
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div>&lt;label class="">Participants&lt;/label>&lt;/div>
+        &lt;label class="checkbox-inline">
+          &lt;input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+        &lt;/label>
+        &lt;label class="checkbox-inline">
+          &lt;input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+        &lt;/label>
+        &lt;input type="hidden" name="project[participants][]" value="">
+      &lt;/div>
+    &lt;/form>
+
+    &lt;form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label">Participants&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;div class="checkbox">
+            &lt;label>
+              &lt;input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+            &lt;/label>
+          &lt;/div>
+          &lt;div class="checkbox">
+            &lt;label>
+              &lt;input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+            &lt;/label>
+          &lt;/div>
+          &lt;input type="hidden" name="project[participants][]" value="">
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label">Participants&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;label class="checkbox-inline">
+            &lt;input type="checkbox" value="1" name="project[participants][]" id="project_participants_1"> Foo Bar
+          &lt;/label>
+          &lt;label class="checkbox-inline">
+            &lt;input type="checkbox" value="2" name="project[participants][]" id="project_participants_2"> Bar Foo
+          &lt;/label>
+          &lt;input type="hidden" name="project[participants][]" value="">
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
+
+<h4 class="article-section__subtitle">Radios</h4>
+
+<pre>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_radio_buttons :owner, User.all, :id, :full_name, label: 'Owner'%>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_radio_buttons :owner, User.all, :id, :full_name, label: 'Owner', inline: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+  <code class="language-ruby code-compact" prism>
+    &lt%= form_for Project.new, url: projects_path, layout: :horizontal do |f| %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_radio_buttons :owner, User.all, :id, :full_name, label: 'Owner'%>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+      &lt;%= f.collection_radio_buttons :owner, User.all, :id, :full_name, label: 'Owner', inline: true %>
+  </code><!--
+--><code class="language-ruby code-compact" prism>
+    &lt% end %>
+  </code>
+</pre>
+
+<p>generates the following HTML:</p>
+
+<div class="well well-marginless-bottom">
+  <h5>EXAMPLE</h5>
+
+  <form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <div><label class="">Owner</label></div>
+      <div class="radio">
+        <label><input type="radio" value="1" name="project[owner]" id="project_owner_1"> FooBar</label>
+      </div>
+      <div class="radio">
+        <label><input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div><label class="">Owner</label></div>
+      <label class="radio-inline"><input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar</label>
+      <label class="radio-inline"><input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo</label>
+    </div>
+  </form>
+
+  <hr>
+
+  <form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Owner</label>
+      <div class="col-sm-9">
+        <div class="radio">
+          <label><input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Owner</label>
+      <div class="col-sm-9">
+        <label class="radio-inline"><input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar</label>
+        <label class="radio-inline"><input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<pre>
+  <code class="language-markup" prism>
+    &lt;form class="form" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;div>&lt;label class="">Owner&lt;/label>&lt;/div>
+        &lt;div class="radio">
+          &lt;label>&lt;input type="radio" value="1" name="project[owner]" id="project_owner_1"> FooBar&lt;/label>
+        &lt;/div>
+        &lt;div class="radio">
+          &lt;label>&lt;input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo&lt;/label>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;div>&lt;label class="">Owner&lt;/label>&lt;/div>
+        &lt;label class="radio-inline">&lt;input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar&lt;/label>
+        &lt;label class="radio-inline">&lt;input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo&lt;/label>
+      &lt;/div>
+    &lt;/form>
+
+    &lt;form class="form form-horizontal" id="new_project" action="/projects" accept-charset="UTF-8" method="post">
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label">Owner&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;div class="radio">
+            &lt;label>&lt;input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar&lt;/label>
+          &lt;/div>
+          &lt;div class="radio">
+            &lt;label>&lt;input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo&lt;/label>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="form-group">
+        &lt;label class="col-sm-3 control-label">Owner&lt;/label>
+        &lt;div class="col-sm-9">
+          &lt;label class="radio-inline">&lt;input type="radio" value="1" name="project[owner]" id="project_owner_1"> Foo Bar&lt;/label>
+          &lt;label class="radio-inline">&lt;input type="radio" value="2" name="project[owner]" id="project_owner_2"> Bar Foo&lt;/label>
+        &lt;/div>
+      &lt;/div>
+    &lt;/form>
+  </code>
+</pre>
 </div>
