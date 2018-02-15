@@ -17,6 +17,14 @@ myBlog.config(function ($stateProvider, $urlRouterProvider) {
       url: '/articles',
       templateUrl: 'js/templates/home.html'
     })
+    .state('tools', {
+      url: '/tools',
+      templateUrl: 'js/templates/tools.html'
+    })
+    .state('base64', {
+      url: '/tools/base64',
+      templateUrl: 'js/templates/tools/base64.html'
+    })
     .state('about', {
       url: '/about',
       templateUrl: 'js/templates/about.html'

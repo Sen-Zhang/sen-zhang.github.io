@@ -1,0 +1,78 @@
+<script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+<h1>Base64</h1>
+<hr>
+<div>
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <label for="origin">Original</label>
+          <textarea class="form-control" id="origin" rows="10"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+      <div class="text-center">
+        <button type="button" id="encode" class="btn btn-primary">Encode</button>
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="button" id="decode" class="btn btn-info">Decode</button>
+      </div>
+    </div>
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <label for="result">Result</label>
+          <textarea class="form-control" id="result" rows="10"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    var origin = $('#origin'),
+      result = $('#result');
+
+    var parseInput = function () {
+      var vars = origin.val().trim();
+      if (vars !== '') {
+        return vars.split('\n').map(function (v) {
+          var key_val = v.split(': '),
+            key = key_val[0],
+            val = key_val[1].trim();
+
+          return [key, val]
+        });
+      }
+    };
+
+    $('#encode').on('click', function () {
+      var inputs = parseInput();
+      if (inputs.length > 0) {
+        var encoded_val = inputs.map(function (input) {
+          return input[0].trim() + ': ' + btoa(input[1]);
+        }).join('\n');
+
+        result.val(encoded_val);
+      }
+    });
+
+    $('#decode').on('click', function () {
+      var inputs = parseInput();
+      if (inputs.length > 0) {
+        var encoded_val = inputs.map(function (input) {
+          return input[0].trim() + ': ' + atob(input[1]);
+        }).join('\n');
+
+        result.val(encoded_val);
+      }
+    });
+  });
+</script>

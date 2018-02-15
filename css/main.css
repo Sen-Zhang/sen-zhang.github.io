@@ -273,3 +273,7 @@ ul {
 .form-horizontal input[type='file'] {
   padding-top: 7px;
 }
+
+.text-center {
+  text-align: center;
+}
